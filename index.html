@@ -203,7 +203,7 @@
     tempInput.value = text;
     document.body.appendChild(tempInput);
     tempInput.select();
-    tempInput.setSelectionRange(0, 99999); // สำหรับมือถือ
+    tempInput.setSelectionRange(0, 99999); 
     document.execCommand("copy");
     document.body.removeChild(tempInput);
     showCopiedMessage();
@@ -211,7 +211,7 @@
 
   function showCopiedMessage() {
     const msg = document.createElement("div");
-    msg.textContent = "คัดลอกแล้ว";
+    msg.textContent = "คัดลอกแล้ว" ${text} ;
     msg.style.position = "fixed";
     msg.style.bottom = "30px";
     msg.style.left = "50%";
