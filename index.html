@@ -211,7 +211,7 @@
 
   function showCopiedMessage() {
     const msg = document.createElement("div");
-    msg.textContent = "คัดลอกแล้ว" ${text} ;
+    msg.textContent = `คัดลอกแล้ว: ${text}`;
     msg.style.position = "fixed";
     msg.style.bottom = "30px";
     msg.style.left = "50%";
@@ -228,7 +228,7 @@
 
     setTimeout(() => {
       msg.remove();
-    }, 1500);
+    }, 1000);
   }
 </script>
 
