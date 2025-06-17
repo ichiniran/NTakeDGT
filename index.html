@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>DGTน้องหาพี่</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+    body {
+      background-color: #4089FF;
+      font-family: "Kanit";
+      font-size: 25px;
+      padding: 20px;
+      text-align: center;
+      
+    }
+
+    .DGT {
+      font-family: "Jersey 20", sans-serif;
+      font-size: 200px;
+      color: #FFFF;
+      text-shadow:
+        -5px -5px 0 rgba(0, 0, 0, 0.100),
+         5px -5px 0 rgba(0, 0, 0, 0.100),
+        -5px  5px 0 rgba(0, 0, 0, 0.100),
+         5px 5px 0 rgba(0, 0, 0, 0.100);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-top: 30px;
+      margin-right: 20px;
+    }
+
+    .rounded-input {
+      font-family: "Kanit";
+      font-size: 20px;
+      width: 250px;
+      padding: 12px 45px 12px 20px;
+      border: 1px solid #ccc;
+      border-radius: 40px;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #555;
+      cursor: pointer;
+    }
+
+    .search-icon:hover {
+      color: #000;
+    }
+
+    .hint-box {
+    margin: 30px auto;
+    font-size: 22px;
+    color: #ffffff;
+    width: 600px;
+    text-align: center;
+    line-height: 1.7;
+    width: 90%; 
+    
+    }
+    .link-button {
+      font-family: "Kanit";
+      width: 100px;
+      font-weight: 700;
+      font-size: 20px;
+      background-color: #fff;
+      color: #000000;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.041);
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .link-button:hover {
+      background-color: #ffc767;
+      color: #000000;
+    }
+     a.icon-link {
+    text-decoration: none;
+  }
+
+      a.icon-link i {
+        font-size: 28px;
+        color: #fff;
+
+  }
+  </style>
+</head>
+<body oncontextmenu="return false">
+  <div class="DGT">DGT</div> 
+  <div style="font-size: 40px; color: #FFFF; margin-top: -20px; margin-right: 20px;">น้องหาพี่ดิจิเทค</div>
+
+  <div class="input-wrapper">
+    <input type="text" id="studentId" class="rounded-input" placeholder="กรอกรหัสนักศึกษา" onkeydown="if(event.key==='Enter'){searchHint()}">
+    <i class="fas fa-search search-icon" onclick="searchHint()"></i>
+  </div>
+  <br>
+  <div class="hint-box" id="hintResult"></div>
+  
+
+  <script>
+   
+  const mentorData = {
+    "B6703776": [
+      {
+        name: "ปาย",
+        instagram: "123_4"
+      },
+      {
+        name: "ภีม",
+        facebook: "aynur",
+        instagram: "_ichiniran"
+      }
+    ],
+    "67030002": [
+      {
+        name: "น้อง C",
+        facebook: "c",
+        instagram: "c"
+      }
+    ]
+  };
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(`คัดลอก "${text}" แล้วจ้า`);
+    });
+  }
+
+  function searchHint() {
+    const studentId = document.getElementById("studentId").value.trim();
+    const hintResult = document.getElementById("hintResult");
+
+    if (studentId === "") {
+      hintResult.textContent = "กรอกรหัสนักศึกษาก่อนน้า";
+      return;
+    }
+
+    const matches = mentorData[studentId];
+
+    if (matches && matches.length > 0) {
+      hintResult.innerHTML = "";
+
+      matches.forEach((student) => {
+        let icons = "";
+
+        if (student.instagram) {
+          icons += `
+            <span onclick="copyToClipboard('${student.instagram}')" 
+                   style="cursor: pointer; margin: 5px; padding: 8px 15px; border: 2px solid #fff; border-radius: 30px; display: inline-block; color: #ffc767;">
+             <i class="fab fa-instagram fa-1x" style="color: #fff;"></i> &nbsp ${student.instagram}
+            </span>`;
+        }
+
+        if (student.facebook) {
+          icons += `
+            <span onclick="copyToClipboard('${student.facebook}')" 
+                  style="cursor: pointer; margin: 5px; padding: 8px 15px; border: 2px solid #fff; border-radius: 30px; display: inline-block; color: #ffc767;">
+               <i class="fab fa-facebook fa-1x" style="color: #fff;"></i> &nbsp ${student.facebook}
+            </span>`;
+        }
+
+        hintResult.innerHTML += `
+          <div style="margin-bottom: 20px; color: #fff;">
+            <strong>${student.name}</strong> ${icons}
+          </div>
+        `;
+      });
+
+    } else {
+      hintResult.textContent = "ไม่พบน้อง กรอกรหัสผิดอ่ะป่าว";
+    }
+  }
+</script>
+
+
+  </script>
+</body>
+</html>
+
