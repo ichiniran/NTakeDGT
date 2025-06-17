@@ -205,7 +205,7 @@ function fallbackCopy(text) {
 
 function showCopiedMessage(text) {
   const msg = document.createElement("div");
-  msg.textContent = `คัดลอกแล้ว: ${text}`;
+  msg.textContent = `คัดลอก ${text} แล้ว`;
   msg.style.position = "fixed";
   msg.style.bottom = "30px";
   msg.style.left = "50%";
@@ -213,7 +213,7 @@ function showCopiedMessage(text) {
   msg.style.background = "#fff";
   msg.style.color = "#000";
   msg.style.padding = "10px 20px";
-  msg.style.borderRadius = "20px";
+  msg.style.borderRadius = "10px";
   msg.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
   msg.style.fontSize = "16px";
   msg.style.zIndex = "9999";
@@ -222,7 +222,7 @@ function showCopiedMessage(text) {
 
   setTimeout(() => {
     msg.remove();
-  }, 1500);
+  }, 1000);
 }
 </script>
 
