@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>DGTน้องหาพี่</title>
+  <title>DGTน้องเทค</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
     body {
@@ -33,7 +33,7 @@
       position: relative;
       display: inline-block;
       margin-top: 30px;
-      margin-right: 20px;
+      margin-right: 00px;
     }
 
     .rounded-input {
@@ -63,7 +63,7 @@
 
     .hint-box {
     margin: 30px auto;
-    font-size: 22px;
+    font-size: 20px;
     color: #ffffff;
     width: 600px;
     text-align: center;
@@ -85,6 +85,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.041);
       display: inline-block;
       white-space: nowrap;
+      align-items: center;
     }
 
     .link-button:hover {
@@ -104,7 +105,7 @@
 </head>
 <body oncontextmenu="return false">
   <div class="DGT">DGT</div> 
-  <div style="font-size: 40px; color: #FFFF; margin-top: -20px; margin-right: 20px;">น้องของพี่ดิจิเทค</div>
+  <div style="font-size: 40px; color: #FFFF; margin-top: -20px; margin-right: 20px;">น้องพี่ดิจิเทค</div>
 
   <div class="input-wrapper">
     <input type="text" id="studentId" class="rounded-input" placeholder="กรอกรหัสนักศึกษา" onkeydown="if(event.key==='Enter'){searchHint()}">
@@ -117,16 +118,20 @@
   <script>
    
   const mentorData = {
-    "B6703776": [
-      {name: "B6825621 สายน้ำ", instagram: "ss0rnor", facebook: "sainam thanaporn"},{name: "B6804190 ออดี้", instagram: "_axdxyy", facebook: "AU DY"},{name: "B6803018 ออมสิน", instagram: "kanlaya2s", facebook: "-"}
-    ],
-    "67030002": [
-      {
-        name: "น้อง C",
-        facebook: "c",
-        instagram: "c"
-      }
-    ]
+"B6703776": [{name: "B6803322 สิน", instagram: "obnithi_sin", facebook: ""},,{name: "B6804084 การ์ตูน (ตูน ตุน ตุ่น)🤟🏻", instagram: "runietunnn", facebook: ""},],
+"B6702373": [{name: "B6803346 ปิงปอง", instagram: "pingpong063", facebook: "ธนาพร ติรวีรขจร"},,{name: "B6804060 ฟลุ๊ค", instagram: "Fluke_wng", facebook: "Fluke_wongsakorn"},],
+"B6702724": [{name: "B6804190 ออดี้", instagram: "_axdxyy", facebook: "AU DY"},],
+"B6703004": [{name: "B6802563 นางฟ้า", instagram: "todayisfahday", facebook: "Naphat Lertmuang"},,{name: "B6803902 Op", instagram: "Pongchaipatwang ", facebook: ""},],
+"B6703202": [{name: "B6802318  มายด์", instagram: "zaaaaaaaaaamind", facebook: "Suchawadee yodkhuntod"},,{name: "B6802431 ม่อน", instagram: "mn_04848", facebook: "Ronnasit Daengchot"},],
+"B6703318": [{name: "B6803506 ไกด์", instagram: "renshotsu", facebook: "Guide O-o"},,{name: "B6833794 ออมสิน", instagram: "Ssinkhxng", facebook: "Surasit chansuk"},],
+"B6703608": [{name: "B6802820 จูน", instagram: "bluejxne21", facebook: "Min Ju"},],
+"B6703769": [{name: "B6803254 จอย", instagram: "this.is.a_joy", facebook: "-"},,{name: "B6803865​ พลอย", instagram: "im_not_ploy", facebook: ""},],
+"B6704087": [{name: "B6803018 ออมสิน", instagram: "kanlaya2s", facebook: "-"},,{name: "B6825621 สายน้ำ", instagram: "ss0rnor ", facebook: "sainam thanaporn"},],
+"B6704377": [{name: "B6802165 เมย์มี่", instagram: "shawtygirlshine_", facebook: ""},],
+"B6726485": [{name: "B6802523 กูเกิ้ล", instagram: "payupat_tangviwatkun", facebook: "Payupat Tangviwatkun "},,{name: "B6822347 น้ำตาล", instagram: "yourx_dreamers", facebook: ""},],
+"B6726812": [{name: "B6802073 คิม", instagram: "_.chskimdesu", facebook: ""},],
+"B6728250": [{name: "B6803414 พลอย", instagram: "pl0y.mt", facebook: "Manatsanan Tan"},],
+    
   };
     
   function searchHint() {
@@ -149,7 +154,7 @@
         if (student.instagram) {
           icons += `
             <span onclick="copyToClipboard('${student.instagram}')" 
-                   style="background-color: #ffc664; cursor: pointer; margin: 5px; padding: 5px 10px; border: 2px solid #fff; border-radius: 60px; display: inline-block; color: #000; font-size: 18px">
+                   style="background-color: #ffc664; cursor: pointer; margin: 5px; padding: 5px 10px; border: 2px solid #fff; border-radius: 60px; display: inline-block; color: #000; font-size: 18px ">
              <i class="fab fa-instagram fa-1x" style="color: #fff;"></i> &nbsp ${student.instagram}
             </span>`;
         }
